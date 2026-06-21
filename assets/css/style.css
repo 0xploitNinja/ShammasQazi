@@ -432,20 +432,6 @@ min-height:80px;
 
 }
 
-.vault-content{
-
-display:none;
-
-}
-
-.vault-content.show{
-
-display:block;
-
-animation:
-reveal .6s ease forwards;
-
-}
 
 @keyframes reveal{
 
@@ -748,24 +734,10 @@ flex-direction:column;
 /* FINAL UNIVERSAL VAULT FIX */
 
 .vault-section .vault-content {
-    display:none !important;
-    visibility:hidden !important;
-    opacity:0 !important;
-    height:0 !important;
-    overflow:hidden !important;
-    }
-    
-    .vault-section .vault-content.show {
-    display:block !important;
-    visibility:visible !important;
-    opacity:1 !important;
-    height:auto !important;
-    overflow:visible !important;
-    
-    animation:
-    reveal .6s ease forwards;
-    }
-    
-    .vault-section .vault-content:not(.show) * {
-    display:none !important;
-    }
+    display: none !important;
+}
+
+.vault-section .vault-content.show {
+    display: block !important;
+    animation: reveal .6s ease forwards;
+}
