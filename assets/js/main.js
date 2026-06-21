@@ -69,3 +69,50 @@ function revealOnScroll() {
 
 window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", revealOnScroll);
+
+// Cert visualization
+
+const certToggle = document.getElementById("cert-toggle");
+const certGrid = document.getElementById("cert-grid");
+const certTerminalText = document.getElementById("cert-terminal-text");
+
+const certMessages = [
+    "> initializing certificate vault...",
+    "> verifying identity...",
+    "> decrypting credentials...",
+    "> access granted."
+];
+
+let certOpen = false;
+
+certToggle.addEventListener("click", () => {
+    if (certOpen) {
+        certGrid.classList.add("hidden");
+        certGrid.classList.remove("show");
+        certTerminalText.textContent = "";
+        certToggle.textContent = "[ unlock certificates ]";
+        certOpen = false;
+        return;
+    }
+
+    certTerminalText.textContent = "";
+    certToggle.textContent = "[ decrypting... ]";
+
+    let i = 0;
+
+    const interval = setInterval(() => {
+        certTerminalText.textContent += certMessages[i] + "\n";
+        i++;
+
+        if (i === certMessages.length) {
+            clearInterval(interval);
+
+            setTimeout(() => {
+                certGrid.classList.remove("hidden");
+                certGrid.classList.add("show");
+                certToggle.textContent = "[ lock certificates ]";
+                certOpen = true;
+            }, 400);
+        }
+    }, 500);
+});
