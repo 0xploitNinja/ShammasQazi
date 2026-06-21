@@ -1,3 +1,8 @@
+
+<!-- ========================= -->
+<!-- FILE: index.html -->
+<!-- ========================= -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,12 +28,13 @@
 
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap"
           rel="stylesheet">
-
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<!-- ========================= -->
+<!-- NAVBAR SECTION -->
+<!-- ========================= -->
 
 <nav class="navbar">
 
@@ -59,140 +65,125 @@
 
 
 <main>
-    <!-- HERO -->
-    
-    <section id="hero"
-    class="hero">
-    
-    <div class="hero-grid">
-    
-    <div class="terminal-window">
-    
-    <div class="terminal-header">
-    
-    <span class="dot red"></span>
-    <span class="dot yellow"></span>
-    <span class="dot green"></span>
-    
-    <span class="terminal-title">
-    
-    shammas@portfolio:~
-    
-    </span>
-    
-    </div>
-    
-    <div class="terminal-body terminal-flow"></div>
-    
-    </div>
-    
-    
-    
-    <div class="profile-card">
-    
-    <h3>
-    
-    STATUS: ONLINE
-    
-    </h3>
-    
-    
-    <div class="profile-items">
-    
-    <p>
-    Role:
-    Security Engineer
-    </p>
-    
-    <p>
-    Focus:
-    Offensive Security
-    </p>
-    
-    <p>
-    Learning:
-    AI Security
-    </p>
-    
-    <p>
-    Current Goal:
-    Exploring AI Security
-    </p>
-    
-    <p>
-    Building:
-    Projects + Writeups
-    </p>
-    
-    <p>
-    State:
-    Always Curious
-    </p>
-    
-    </div>
-    
-    </div>
-    
-    </div>
-    
-    
-    
-    <div class="hero-buttons">
-    
-    <a href="#portfolio"
-    class="btn">
-    
-    View Portfolio
-    
-    </a>
-    
-    
-    <a href="#contact"
-    class="btn btn-outline">
-    
-    Contact Me
-    
-    </a>
-    
-    </div>
-    
-    </section>
 
-    
+<!-- ========================= -->
+<!-- HERO TERMINAL SECTION -->
+<!-- ========================= -->
+
+<section id="hero"
+class="hero">
+
+<div class="hero-grid">
+
+<div class="terminal-window">
+
+<div class="terminal-header">
+
+<span class="dot red"></span>
+<span class="dot yellow"></span>
+<span class="dot green"></span>
+
+<span class="terminal-title">
+shammas@portfolio:~
+</span>
+
+</div>
+
+<div class="terminal-body terminal-flow"></div>
+
+</div>
+
+
+
+<div class="profile-card">
+
+<h3>
+STATUS: OPERATIONAL
+</h3>
+
+<div class="profile-items">
+
+<p>Role: Security Engineer</p>
+
+<p>Primary: Offensive Security</p>
+
+<p>Expanding: AI Security</p>
+
+<p>Developing: Automation + Research</p>
+
+<p>Building: Public Projects + Writeups</p>
+
+<p>Objective: Understand Systems. Break Assumptions.</p>
+
+<p>Condition: Always Curious</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="hero-buttons">
+
+<a href="#portfolio"
+class="btn">
+View Portfolio
+</a>
+
+<a href="#contact"
+class="btn btn-outline">
+Contact Me
+</a>
+
+</div>
+
+</section>
 
 
 
 
 
-<!-- ABOUT -->
-
+<!-- ========================= -->
+<!-- ABOUT SECTION -->
+<!-- ========================= -->
 
 <section id="about"
-class="section">
+class="section vault-section">
 
 <h2>
-
 > cat about_me.txt
-
 </h2>
 
-
 <p>
-
-I am a Security Engineer with a strong interest in offensive security,
-security engineering,
-automation,
-and practical research.
-
-My journey started from understanding how systems work and gradually evolved into exploring how they break,
-how they can be secured,
-and how security can become an enabler instead of a blocker.
-
+Identity file locked.
 </p>
 
+<button class="vault-toggle"
+data-target="about-content"
+data-terminal="about-terminal"
+data-name="about_me.txt">
+[ open about_me.txt ]
+</button>
+
+<div class="vault-terminal"
+id="about-terminal"></div>
+
+<div class="vault-content"
+id="about-content">
 
 <p>
+I am a Security Engineer driven by curiosity around how systems work,
+how they fail,
+and how they can be made more resilient.
+What started as understanding technology gradually evolved into offensive security,
+security engineering,
+automation,
+and practical security research.
+</p>
 
+<p>
 Professionally,
 I work across security operations,
 vulnerability management,
@@ -200,32 +191,33 @@ security monitoring,
 web application security,
 penetration testing,
 incident response,
-and automation.
-
-I enjoy turning complex security problems into repeatable processes and practical solutions.
-
+and building automation that improves security at scale.
+I enjoy turning complex security challenges into repeatable processes,
+practical solutions,
+and meaningful improvements.
 </p>
 
-
 <p>
-
-Outside of professional work,
-I actively practice hands-on security through labs,
-writeups,
+Outside of work,
+I continue developing through hands-on labs,
+technical writeups,
 continuous learning,
-and building projects that help strengthen both technical depth and problem-solving ability.
-
+and building projects that strengthen both technical depth and problem-solving ability.
+Beyond cybersecurity,
+years of competing in Mixed Martial Arts at the national level from 2016 to 2022 shaped the discipline,
+resilience,
+and mindset I bring into both work and personal growth.
 </p>
-
 
 <p>
-
-My current focus areas include offensive security,
-AI security,
-advanced attack methodologies,
-and creating work that contributes back to the cybersecurity community.
-
+My current focus is advancing deeper into offensive security,
+exploring AI security and modern attack methodologies,
+and creating work that contributes back to the cybersecurity community through research,
+tooling,
+and shared knowledge.
 </p>
+
+</div>
 
 </section>
 
@@ -233,64 +225,102 @@ and creating work that contributes back to the cybersecurity community.
 
 
 
-
-<!-- PORTFOLIO -->
+<!-- ========================= -->
+<!-- PORTFOLIO SECTION -->
+<!-- ========================= -->
 
 <section id="portfolio"
-class="section">
+class="section vault-section">
 
 <h2>
-
 > ls portfolio/
-
 </h2>
 
+<p>
+Project directory locked.
+</p>
+
+<button class="vault-toggle"
+data-target="portfolio-content"
+data-terminal="portfolio-terminal"
+data-name="portfolio/">
+[ unlock portfolio/ ]
+</button>
+
+<div class="vault-terminal"
+id="portfolio-terminal"></div>
+
+<div class="vault-content"
+id="portfolio-content">
 
 <div class="card-grid">
 
-    <div class="card">
-    <h3>Web Application Penetration Testing</h3>
-    <p>
-    Testing web apps and APIs for authentication issues, access control flaws, injection bugs, SSRF, XXE, XSS, and business logic vulnerabilities.
-    </p>
-    </div>
-    
-    <div class="card">
-    <h3>Hack The Box Labs</h3>
-    <p>
-    Hands-on exploitation, enumeration, privilege escalation, Active Directory attacks, reporting, and real-world lab practice.
-    </p>
-    </div>
-    
-    <div class="card">
-    <h3>SOC & SIEM Engineering</h3>
-    <p>
-    Security monitoring, Wazuh engineering, custom rules, log analysis, dashboards, alert tuning, and incident investigation workflows.
-    </p>
-    </div>
-    
-    <div class="card">
-    <h3>Incident Response</h3>
-    <p>
-    Investigating alerts, isolating affected hosts, collecting evidence, reviewing logs, and correlating activity across security tools.
-    </p>
-    </div>
-    
-    <div class="card">
-    <h3>Automation & Tooling</h3>
-    <p>
-    Building scripts and workflows for repetitive security tasks, reporting, vulnerability tracking, alert handling, and operational improvements.
-    </p>
-    </div>
-    
-    <div class="card">
-    <h3>Security Hardening</h3>
-    <p>
-    Working on Linux, Windows, database, and application hardening using baselines, benchmarks, and practical validation.
-    </p>
-    </div>
-    
-    </div>
+<div class="card">
+<h3>Web Application Penetration Testing</h3>
+<p>
+Assessing web applications and APIs for authentication weaknesses,
+authorization bypasses,
+injection flaws,
+SSRF,
+XXE,
+XSS,
+business logic abuse,
+and secure architecture validation.
+</p>
+</div>
+
+<div class="card">
+<h3>SOC & SIEM Engineering</h3>
+<p>
+Designing and improving security monitoring through SIEM engineering,
+custom detections,
+log analysis,
+dashboarding,
+alert tuning,
+and incident investigation workflows.
+</p>
+</div>
+
+<div class="card">
+<h3>Incident Response</h3>
+<p>
+Investigating security events,
+triaging alerts,
+isolating impacted systems,
+collecting forensic evidence,
+analyzing logs,
+and coordinating response activities.
+</p>
+</div>
+
+<div class="card">
+<h3>Automation & Tooling</h3>
+<p>
+Building security automation,
+custom tooling,
+and operational workflows to streamline reporting,
+vulnerability management,
+alert handling,
+and repetitive security processes.
+</p>
+</div>
+
+<div class="card">
+<h3>Security Hardening</h3>
+<p>
+Strengthening Linux,
+Windows,
+databases,
+and applications through secure configuration baselines,
+benchmark alignment,
+hardening practices,
+and validation testing.
+</p>
+</div>
+
+</div>
+
+</div>
 
 </section>
 
@@ -298,139 +328,174 @@ class="section">
 
 
 
-<!-- CERTIFICATIONS -->
+<!-- ========================= -->
+<!-- CERTIFICATIONS SECTION -->
+<!-- ========================= -->
 
 <section id="certs"
-class="section">
+class="section vault-section">
 
 <h2>
-
 > certs --show
-
 </h2>
 
 <p>
-
-Security certifications
-and practical milestones.
-
+Certificate vault locked.
 </p>
 
-<button class="cert-toggle"
-id="cert-toggle">
-
+<button class="vault-toggle"
+data-target="certs-content"
+data-terminal="certs-terminal"
+data-name="certificate_vault">
 [ unlock certificates ]
-
 </button>
 
-<div class="cert-terminal"
-id="cert-terminal">
+<div class="vault-terminal"
+id="certs-terminal"></div>
 
-<p id="cert-terminal-text"></p>
+<div class="vault-content"
+id="certs-content">
 
-</div>
-
-<div class="cert-grid"
-id="cert-grid">
+<div class="cert-grid">
 
 <div class="cert-card">
 
-<img src="assets/images/certs/cpts.png" alt="CPTS Certificate">
+<img src="assets/images/certs/cpts.png"
+alt="CPTS Certificate">
 
 <h3>CPTS</h3>
 
-<p>Certified Penetration Testing Specialist</p>
+<p>
+Certified Penetration Testing Specialist
+</p>
 
 </div>
+
+
 
 <div class="cert-card">
 
-<img src="assets/images/certs/cwes.png" alt="CWES Certificate">
+<img src="assets/images/certs/cwes.png"
+alt="CWES Certificate">
 
 <h3>CWES</h3>
 
-<p>Certified Web Exploitation Specialist</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-
-
-<!-- PASSIONS -->
-
-<section id="passions"
-class="section">
-
-<h2>
-
-> decode passions/
-
-</h2>
-
-
 <p>
-
-Outside cybersecurity,
-I enjoy fitness and maintaining a healthy lifestyle,
-training and following MMA,
-exploring performance and physical growth,
-learning about mythology and ancient history,
-creating content,
-gaming,
-and seeking new experiences and adventures that push me outside my comfort zone.
-
+Certified Web Exploitation Specialist
 </p>
 
+</div>
+
+</div>
+
+</div>
+
 </section>
 
 
 
 
 
-<!-- WRITEUPS -->
+<!-- ========================= -->
+<!-- PASSIONS SECTION -->
+<!-- ========================= -->
 
-<section id="writeups"
-class="section">
+<section id="passions"
+class="section vault-section">
 
 <h2>
-
-> writeups/
-
+> decode passions/
 </h2>
 
+<p>
+Personal archive encrypted.
+</p>
+
+<button class="vault-toggle"
+data-target="passions-content"
+data-terminal="passions-terminal"
+data-name="passions/">
+[ decode passions/ ]
+</button>
+
+<div class="vault-terminal"
+id="passions-terminal"></div>
+
+<div class="vault-content"
+id="passions-content">
 
 <p>
+Outside cybersecurity,
+I enjoy pushing myself through fitness and maintaining a disciplined lifestyle.
+I trained and competed in Mixed Martial Arts from 2016 to 2022,
+representing at the national level,
+which shaped my mindset around consistency,
+resilience,
+and performing under pressure.
+I also enjoy exploring human performance,
+studying mythology and ancient history,
+creating content,
+gaming,
+and constantly seeking experiences that challenge me and expand my perspective.
+</p>
 
+</div>
+
+</section>
+
+
+
+
+
+<!-- ========================= -->
+<!-- WRITEUPS SECTION -->
+<!-- ========================= -->
+
+<section id="writeups"
+class="section vault-section">
+
+<h2>
+> writeups/
+</h2>
+
+<p>
+Writeup directory locked.
+</p>
+
+<button class="vault-toggle"
+data-target="writeups-content"
+data-terminal="writeups-terminal"
+data-name="writeups/">
+[ open writeups/ ]
+</button>
+
+<div class="vault-terminal"
+id="writeups-terminal"></div>
+
+<div class="vault-content"
+id="writeups-content">
+
+<p>
 A collection of HTB writeups,
 lab notes,
 research,
 Medium articles,
-and technical content documenting my journey.
-
+and technical content documenting my cybersecurity journey.
 </p>
-
 
 <div class="contact-links">
 
 <a href="https://medium.com/@shammasqazi18"
 target="_blank">
-
 Read on Medium
-
 </a>
-
 
 <a href="https://profile.hackthebox.com"
 target="_blank">
-
 Hack The Box
-
 </a>
+
+</div>
 
 </div>
 
@@ -440,28 +505,43 @@ Hack The Box
 
 
 
-<!-- FUTURE -->
+<!-- ========================= -->
+<!-- FUTURE ROADMAP SECTION -->
+<!-- ========================= -->
 
 <section id="future"
-class="section">
+class="section vault-section">
 
 <h2>
-
 > roadmap --future
-
 </h2>
 
+<p>
+Roadmap file locked.
+</p>
+
+<button class="vault-toggle"
+data-target="future-content"
+data-terminal="future-terminal"
+data-name="roadmap.future">
+[ load roadmap ]
+</button>
+
+<div class="vault-terminal"
+id="future-terminal"></div>
+
+<div class="vault-content"
+id="future-content">
 
 <p>
-
-My future plans include advancing my offensive security expertise,
-exploring AI security and the challenges around securing AI systems,
-completing advanced certifications,
-building public security projects,
-publishing more writeups,
-and continuing to grow as a well-rounded cybersecurity professional.
-
+Continue sharpening offensive security skills through advanced labs and real-world research,
+move deeper into AI security and adversarial testing,
+build security tooling and public projects,
+publish technical writeups,
+and keep evolving as a security engineer who can both break and secure systems.
 </p>
+
+</div>
 
 </section>
 
@@ -469,112 +549,107 @@ and continuing to grow as a well-rounded cybersecurity professional.
 
 
 
-<!-- CONTACT -->
+<!-- ========================= -->
+<!-- CONTACT SECTION -->
+<!-- ========================= -->
 
 <section id="contact"
-class="section contact">
+class="section contact vault-section">
 
 <h2>
-
 > connect --signal
-
 </h2>
 
+<p>
+Contact channels locked.
+</p>
+
+<button class="vault-toggle"
+data-target="contact-content"
+data-terminal="contact-terminal"
+data-name="signal_channels">
+[ establish connection ]
+</button>
+
+<div class="vault-terminal"
+id="contact-terminal"></div>
+
+<div class="vault-content"
+id="contact-content">
 
 <p>
-
 Want to connect,
 collaborate,
 or explore my work?
-
 </p>
-
 
 <div class="contact-links">
 
 <a href="https://www.linkedin.com/in/shammas-qazi-2a3343256/"
 target="_blank">
-
 LinkedIn
-
 </a>
-
 
 <a href="https://github.com/0xploitNinja"
 target="_blank">
-
 GitHub
-
 </a>
-
 
 <a href="https://medium.com/@shammasqazi18"
 target="_blank">
-
 Medium
-
 </a>
-
 
 <a href="mailto:shammasqazi18@gmail.com">
-
 Email
-
 </a>
+
+</div>
 
 </div>
 
 </section>
 
-
 </main>
 
-<!-- FOOTER -->
+
+
+
+
+<!-- ========================= -->
+<!-- FOOTER SECTION -->
+<!-- ========================= -->
 
 <footer class="footer">
 
-    <p>
-    
-    $ exit
-    
-    </p>
-    
-    
-    <p>
-    
-    Built by Shammas Qazi • © 2026
-    
-    </p>
-    
-    
-    <div class="footer-links">
-    
-    <a href="https://github.com/0xploitNinja"
-    target="_blank">
-    
-    GitHub
-    
-    </a>
-    
-    
-    <a href="https://www.linkedin.com/in/shammas-qazi-2a3343256/"
-    target="_blank">
-    
-    LinkedIn
-    
-    </a>
-    
-    
-    <a href="https://medium.com/@shammasqazi18"
-    target="_blank">
-    
-    Medium
-    
-    </a>
-    
-    </div>
-    
-    </footer>
+<p>
+$ exit
+</p>
+
+<p>
+Built by Shammas Qazi • © 2026
+</p>
+
+<div class="footer-links">
+
+<a href="https://github.com/0xploitNinja"
+target="_blank">
+GitHub
+</a>
+
+<a href="https://www.linkedin.com/in/shammas-qazi-2a3343256/"
+target="_blank">
+LinkedIn
+</a>
+
+<a href="https://medium.com/@shammasqazi18"
+target="_blank">
+Medium
+</a>
+
+</div>
+
+</footer>
 
 <script src="assets/js/main.js"></script>
 
