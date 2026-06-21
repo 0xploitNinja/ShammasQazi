@@ -87,7 +87,6 @@ let certOpen = false;
 
 certToggle.addEventListener("click", () => {
     if (certOpen) {
-        certGrid.classList.add("hidden");
         certGrid.classList.remove("show");
         certTerminalText.textContent = "";
         certToggle.textContent = "[ unlock certificates ]";
@@ -108,7 +107,6 @@ certToggle.addEventListener("click", () => {
             clearInterval(interval);
 
             setTimeout(() => {
-                certGrid.classList.remove("hidden");
                 certGrid.classList.add("show");
                 certToggle.textContent = "[ lock certificates ]";
                 certOpen = true;
