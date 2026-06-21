@@ -619,3 +619,101 @@ body {
     }
     
     }
+
+    /* Cert vault */
+
+   /* CERTIFICATE UNLOCK */
+
+.cert-toggle {
+    background: transparent;
+    color: #9fef00;
+    border: 1px solid #9fef00;
+    padding: 12px 18px;
+    font-family: 'JetBrains Mono', monospace;
+    cursor: pointer;
+    margin: 20px 0;
+}
+
+.cert-toggle:hover {
+    background: #9fef00;
+    color: #0b0f10;
+    box-shadow: 0 0 25px rgba(159,239,0,.25);
+}
+
+.cert-terminal {
+    min-height: 70px;
+    background: #080c0d;
+    border: 1px solid rgba(159,239,0,.25);
+    padding: 18px;
+    margin-bottom: 25px;
+    color: #9fef00;
+    white-space: pre-line;
+}
+
+/* hidden by default */
+.cert-grid {
+    display: none;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.cert-grid.show {
+    display: grid !important;
+    animation: certReveal .6s ease forwards;
+}
+
+.cert-card {
+    background: #111819;
+    border: 1px solid rgba(159,239,0,.25);
+    padding: 18px;
+    overflow: hidden;
+    transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+}
+
+.cert-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid rgba(159,239,0,.2);
+    transition: transform .45s ease;
+}
+
+.cert-card:hover {
+    transform: scale(1.04);
+    border-color: #9fef00;
+    box-shadow: 0 0 40px rgba(159,239,0,.18);
+}
+
+.cert-card:hover img {
+    transform: scale(1.06);
+}
+
+.cert-card h3 {
+    color: #9fef00;
+    margin-top: 18px;
+    margin-bottom: 10px;
+}
+
+.cert-card p {
+    color: #b7c9bd;
+}
+
+@media(max-width:700px) {
+    .cert-grid.show {
+        grid-template-columns: 1fr;
+    }
+}
+
+@keyframes certReveal {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(.96);
+        filter: blur(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
