@@ -515,3 +515,107 @@ body {
     opacity: .7;
     
     }
+
+
+/* Certs */
+
+/* CERTIFICATE CARDS */
+
+.cert-grid {
+
+    display: grid;
+    
+    grid-template-columns: repeat(2,1fr);
+    
+    gap: 30px;
+    
+    }
+    
+    
+    
+    .cert-card {
+    
+    background: #111819;
+    
+    border: 1px solid rgba(159,239,0,.25);
+    
+    padding: 18px;
+    
+    overflow: hidden;
+    
+    transition:
+    transform .35s ease,
+    box-shadow .35s ease,
+    border-color .35s ease;
+    
+    }
+    
+    
+    
+    .cert-card img {
+    
+    width: 100%;
+    
+    height: auto;
+    
+    display: block;
+    
+    border: 1px solid rgba(159,239,0,.2);
+    
+    transition:
+    transform .45s ease;
+    
+    }
+    
+    
+    
+    .cert-card:hover {
+    
+    transform: scale(1.04);
+    
+    border-color: #9fef00;
+    
+    box-shadow:
+    0 0 40px rgba(159,239,0,.18);
+    
+    }
+    
+    
+    
+    .cert-card:hover img {
+    
+    transform: scale(1.06);
+    
+    }
+    
+    
+    
+    .cert-card h3 {
+    
+    color: #9fef00;
+    
+    margin-top: 18px;
+    
+    margin-bottom: 10px;
+    
+    }
+    
+    
+    
+    .cert-card p {
+    
+    color: #b7c9bd;
+    
+    }
+    
+    
+    
+    @media(max-width:700px){
+    
+    .cert-grid{
+    
+    grid-template-columns:1fr;
+    
+    }
+    
+    }
