@@ -745,20 +745,27 @@ flex-direction:column;
 
 }
 
-/* FINAL VAULT FORCE FIX */
+/* FINAL UNIVERSAL VAULT FIX */
 
-.vault-content {
-    display: none !important;
-}
-
-.vault-content.show {
-    display: block !important;
-}
-
-#certs-content.show .cert-grid {
-    display: grid !important;
-}
-
-#certs-content:not(.show) {
-    display: none !important;
-}
+.vault-section .vault-content {
+    display:none !important;
+    visibility:hidden !important;
+    opacity:0 !important;
+    height:0 !important;
+    overflow:hidden !important;
+    }
+    
+    .vault-section .vault-content.show {
+    display:block !important;
+    visibility:visible !important;
+    opacity:1 !important;
+    height:auto !important;
+    overflow:visible !important;
+    
+    animation:
+    reveal .6s ease forwards;
+    }
+    
+    .vault-section .vault-content:not(.show) * {
+    display:none !important;
+    }
