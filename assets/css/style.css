@@ -744,3 +744,21 @@ flex-direction:column;
 }
 
 }
+
+/* FINAL VAULT FORCE FIX */
+
+.vault-content {
+    display: none !important;
+}
+
+.vault-content.show {
+    display: block !important;
+}
+
+#certs-content.show .cert-grid {
+    display: grid !important;
+}
+
+#certs-content:not(.show) {
+    display: none !important;
+}
