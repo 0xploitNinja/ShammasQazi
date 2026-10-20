@@ -1,193 +1,634 @@
 
-// =========================
-// FILE: assets/js/main.js
-// =========================
+/* =====================================================
+   SHAMMAS QAZI - SECURITY PORTFOLIO
+   MAIN JAVASCRIPT
+
+   FEATURES:
+   1. Hero terminal typing animation
+   2. Mobile navigation
+   3. Vault lock/unlock animations
+   4. Scroll reveal animations
+   5. Reduced-motion accessibility
+===================================================== */
+
+"use strict";
+
+/* =====================================================
+   01 - GLOBAL SETTINGS
+===================================================== */
+
+const CONFIG = {
+    typingSpeed: 30,
+    lineDelay: 280,
+    vaultTypingSpeed: 24,
+    vaultLineDelay: 320
+};
+
+/*
+   Respect the user's reduced-motion preference.
+*/
+
+const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+);
+
+function sleep(milliseconds) {
+    if (prefersReducedMotion.matches) {
+        return Promise.resolve();
+    }
+
+    return new Promise(resolve => {
+        setTimeout(resolve, milliseconds);
+    });
+}
 
 
+/* =====================================================
+   02 - HERO TERMINAL CONTENT
 
-// =========================
-// HERO TERMINAL TYPING LOGIC
-// =========================
+   Edit terminalText to change the introduction
+   displayed on the LEFT side of the hero section.
+
+   The RIGHT status panel is defined in index.html.
+===================================================== */
 
 const terminalText = [
     "$ whoami",
     "Shammas Qazi",
     "Security Engineer | Offensive Security | Automation | Research",
-    "STATUS: OPERATIONAL",
-    "Primary: Offensive Security",
-    "Expanding: AI Security",
-    "Building: Public Projects + Writeups",
-    "Objective: Understand Systems. Break Assumptions."
+    "",
+    "$ cat mission.txt",
+    "Building secure systems.",
+    "Breaking insecure ones.",
+    "Automating security workflows.",
+    "Documenting the journey.",
+    "",
+    "$ echo $MINDSET",
+    "Stay Curious. Keep Learning. Never Stop Exploring."
 ];
 
-const terminalContainer = document.querySelector(".terminal-flow");
 
-let lineIndex = 0;
-let charIndex = 0;
+/* =====================================================
+   03 - TERMINAL TYPEWRITER FUNCTION
 
-function typeLine() {
-    if (!terminalContainer) {
+   Creates a new line and types characters one by one.
+   Uses textContent to avoid interpreting text as HTML.
+===================================================== */
+
+async function typeTerminalLine(container, text, speed) {
+
+    const line = document.createElement("div");
+
+    line.classList.add("terminal-line");
+
+    /*
+       Highlight command lines that begin with "$".
+    */
+
+    if (text.startsWith("$")) {
+        line.classList.add("terminal-command");
+    }
+
+    container.appendChild(line);
+
+    /*
+       Preserve empty lines in the terminal.
+    */
+
+    if (text === "") {
+        line.textContent = "\u00A0";
         return;
     }
 
-    if (lineIndex < terminalText.length) {
-        const currentLine = terminalText[lineIndex];
+    /*
+       Display instantly when reduced motion is enabled.
+    */
 
-        if (charIndex === 0) {
-            const line = document.createElement("p");
-            line.classList.add("typed-line");
-            terminalContainer.appendChild(line);
-        }
+    if (prefersReducedMotion.matches) {
+        line.textContent = text;
+        return;
+    }
 
-        const currentParagraph = terminalContainer.lastChild;
-        currentParagraph.textContent += currentLine.charAt(charIndex);
+    for (const character of text) {
+        line.textContent += character;
 
-        charIndex++;
-
-        if (charIndex < currentLine.length) {
-            setTimeout(typeLine, 45);
-        } else {
-            charIndex = 0;
-            lineIndex++;
-            setTimeout(typeLine, 350);
-        }
-    } else {
-        const cursor = document.createElement("span");
-        cursor.classList.add("cursor");
-        cursor.textContent = "█";
-        terminalContainer.appendChild(cursor);
+        await sleep(speed);
     }
 }
 
-document.addEventListener("DOMContentLoaded", typeLine);
+
+/* =====================================================
+   04 - HERO TERMINAL ANIMATION
+
+   Automatically runs when the page loads.
+===================================================== */
+
+async function initializeHeroTerminal() {
+
+    const terminal = document.querySelector(
+        ".terminal-flow"
+    );
+
+    if (!terminal) {
+        return;
+    }
+
+    /*
+       Clear any existing terminal content.
+    */
+
+    terminal.textContent = "";
+
+    /*
+       Type each line sequentially.
+    */
+
+    for (const line of terminalText) {
+
+        await typeTerminalLine(
+            terminal,
+            line,
+            CONFIG.typingSpeed
+        );
+
+        await sleep(CONFIG.lineDelay);
+    }
+
+    /*
+       Add a blinking cursor after the final line.
+    */
+
+    const cursorLine = document.createElement("div");
+
+    cursorLine.classList.add("terminal-line");
+
+    const cursor = document.createElement("span");
+
+    cursor.classList.add("terminal-cursor");
+
+    cursor.textContent = "█";
+
+    cursorLine.appendChild(cursor);
+
+    terminal.appendChild(cursorLine);
+}
 
 
+/* =====================================================
+   05 - MOBILE NAVIGATION
 
+   Opens and closes the hamburger navigation.
+===================================================== */
 
+function initializeMobileNavigation() {
 
-// =========================
-// MOBILE NAVBAR TOGGLE LOGIC
-// =========================
+    const menuButton = document.querySelector(
+        ".menu-toggle"
+    );
 
-const menuToggle = document.getElementById("menu-toggle");
-const navLinks = document.getElementById("nav-links");
+    const navigation = document.querySelector(
+        ".nav-links"
+    );
 
-if (menuToggle && navLinks) {
-    menuToggle.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
+    if (!menuButton || !navigation) {
+        return;
+    }
+
+    function closeMenu() {
+
+        navigation.classList.remove("active");
+
+        menuButton.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+    }
+
+    /*
+       Toggle navigation on hamburger click.
+    */
+
+    menuButton.addEventListener("click", () => {
+
+        const isOpen = navigation.classList.toggle(
+            "active"
+        );
+
+        menuButton.setAttribute(
+            "aria-expanded",
+            String(isOpen)
+        );
+    });
+
+    /*
+       Close menu after selecting a navigation link.
+    */
+
+    navigation.querySelectorAll("a").forEach(link => {
+
+        link.addEventListener("click", closeMenu);
+
+    });
+
+    /*
+       Close menu when Escape is pressed.
+    */
+
+    document.addEventListener("keydown", event => {
+
+        if (event.key === "Escape") {
+            closeMenu();
+        }
+
+    });
+
+    /*
+       Close mobile navigation when returning
+       to desktop screen width.
+    */
+
+    window.addEventListener("resize", () => {
+
+        if (window.innerWidth > 768) {
+            closeMenu();
+        }
+
     });
 }
 
 
+/* =====================================================
+   06 - VAULT TERMINAL MESSAGE
+
+   These messages appear when unlocking a section.
+
+   This is a visual terminal simulation,
+   not real encryption or authentication.
+===================================================== */
+
+function getVaultMessages(vaultName) {
+
+    return [
+        `$ access ${vaultName}`,
+        "[*] Establishing secure session...",
+        "[*] Verifying archive integrity...",
+        "[*] Loading requested directory...",
+        "[+] Access granted.",
+        "[+] Archive unlocked successfully."
+    ];
+}
 
 
+/* =====================================================
+   07 - VAULT TERMINAL ANIMATION
 
-// =========================
-// UNIVERSAL HACKER VAULT LOGIC
-// This powers About, Portfolio, Certs, Passions, Writeups, Future, and Contact.
-// Each button uses data-target, data-terminal, data-name, data-open, and data-close.
-// =========================
+   Displays simulated security terminal messages
+   one line at a time.
+===================================================== */
 
-const vaultButtons = document.querySelectorAll(".vault-toggle");
+async function runVaultTerminal(
+    terminal,
+    vaultName
+) {
 
-vaultButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-        const targetId = button.getAttribute("data-target");
-        const terminalId = button.getAttribute("data-terminal");
-        const vaultName = button.getAttribute("data-name");
-        const openText = button.getAttribute("data-open") || `[ unlock ${vaultName} ]`;
-        const closeText = button.getAttribute("data-close") || `[ lock ${vaultName} ]`;
+    /*
+       Reveal terminal output.
+    */
 
-        const targetContent = document.getElementById(targetId);
-        const terminalBox = document.getElementById(terminalId);
+    terminal.hidden = false;
 
-        if (!targetContent || !terminalBox) {
+    /*
+       Clear previous messages.
+    */
+
+    terminal.textContent = "";
+
+    const messages = getVaultMessages(vaultName);
+
+    for (const message of messages) {
+
+        await typeTerminalLine(
+            terminal,
+            message,
+            CONFIG.vaultTypingSpeed
+        );
+
+        await sleep(CONFIG.vaultLineDelay);
+    }
+}
+
+
+/* =====================================================
+   08 - VAULT LOCK/UNLOCK ENGINE
+
+   Only the following sections have vault functionality:
+
+   - Passions
+   - Writeups
+   - Future Roadmap
+
+   About, Portfolio, Certifications, and Contact
+   remain visible at all times.
+===================================================== */
+
+function initializeVaultSystem() {
+
+    const vaultButtons = document.querySelectorAll(
+        "#passions .vault-toggle, " +
+        "#writeups .vault-toggle, " +
+        "#future .vault-toggle"
+    );
+
+    vaultButtons.forEach(button => {
+
+        /*
+           Read target elements from HTML data attributes.
+        */
+
+        const contentId = button.dataset.target;
+
+        const terminalId = button.dataset.terminal;
+
+        const vaultName = button.dataset.name || "archive/";
+
+        const openLabel = button.dataset.open || "[ unlock ]";
+
+        const closeLabel = button.dataset.close || "[ lock ]";
+
+        const content = document.getElementById(contentId);
+
+        const terminal = document.getElementById(terminalId);
+
+        if (!content || !terminal) {
             return;
         }
 
-        const isOpen = targetContent.classList.contains("show");
+        /*
+           Ensure vault starts locked.
+        */
 
-        if (isOpen) {
-            targetContent.classList.remove("show");
-            terminalBox.textContent = "";
-            button.textContent = openText;
-            return;
-        }
+        content.hidden = true;
 
-        terminalBox.textContent = "";
-        button.textContent = "[ decrypting... ]";
+        terminal.hidden = true;
 
-        const vaultMessages = [
-            `> locating ${vaultName}...`,
-            "> verifying access token...",
-            "> decrypting archive...",
-            "> rendering secure output...",
-            "> access granted."
-        ];
+        button.textContent = openLabel;
 
-        let messageIndex = 0;
+        button.setAttribute(
+            "aria-expanded",
+            "false"
+        );
 
-        const interval = setInterval(() => {
-            terminalBox.textContent += vaultMessages[messageIndex] + "\n";
-            messageIndex++;
+        /*
+           Prevent repeated clicks while the
+           unlocking animation is running.
+        */
 
-            if (messageIndex === vaultMessages.length) {
-                clearInterval(interval);
+        let isBusy = false;
 
-                setTimeout(() => {
-                    targetContent.classList.add("show");
-                    button.textContent = closeText;
-                }, 350);
+        button.addEventListener("click", async () => {
+
+            if (isBusy) {
+                return;
             }
-        }, 420);
-    });
-});
 
+            /*
+               If the vault is already open,
+               lock it immediately.
+            */
 
+            if (!content.hidden) {
 
+                content.hidden = true;
 
+                content.classList.remove("show");
 
-// =========================
-// CLOSE MOBILE MENU AFTER CLICK LOGIC
-// =========================
+                terminal.hidden = true;
 
-const navItems = document.querySelectorAll(".nav-links a");
+                terminal.textContent = "";
 
-navItems.forEach((item) => {
-    item.addEventListener("click", () => {
-        if (navLinks) {
-            navLinks.classList.remove("active");
-        }
-    });
-});
+                button.textContent = openLabel;
 
+                button.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
 
+                return;
+            }
 
+            /*
+               Begin unlocking sequence.
+            */
 
+            isBusy = true;
 
-// =========================
-// SCROLL REVEAL ANIMATION LOGIC
-// Applies fade-up animation to sections, cards, certs, profile panel, and terminal.
-// =========================
+            button.disabled = true;
 
-const revealElements = document.querySelectorAll(
-    ".section, .card, .cert-card, .profile-card, .terminal-window"
-);
+            button.setAttribute(
+                "aria-busy",
+                "true"
+            );
 
-revealElements.forEach((element) => {
-    element.classList.add("reveal");
-});
+            try {
 
-function revealOnScroll() {
-    revealElements.forEach((element) => {
-        const elementTop = element.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
+                await runVaultTerminal(
+                    terminal,
+                    vaultName
+                );
 
-        if (elementTop < windowHeight - 80) {
-            element.classList.add("active");
-        }
+                /*
+                   Reveal vault content after
+                   terminal animation completes.
+                */
+
+                content.hidden = false;
+
+                content.classList.add("show");
+
+                button.textContent = closeLabel;
+
+                button.setAttribute(
+                    "aria-expanded",
+                    "true"
+                );
+
+            } finally {
+
+                isBusy = false;
+
+                button.disabled = false;
+
+                button.removeAttribute("aria-busy");
+
+            }
+
+        });
+
     });
 }
 
-window.addEventListener("scroll", revealOnScroll);
-window.addEventListener("load", revealOnScroll);
+
+/* =====================================================
+   09 - SCROLL REVEAL ANIMATION
+
+   Animates sections and cards when they enter
+   the viewport.
+
+   Vault content is not selected here because
+   it has its own unlock animation.
+===================================================== */
+
+function initializeScrollReveal() {
+
+    const revealElements = document.querySelectorAll(
+        ".section, " +
+        ".card, " +
+        ".cert-card, " +
+        ".terminal-window, " +
+        ".profile-card"
+    );
+
+    /*
+       If reduced motion is enabled, do not
+       apply scroll-based animations.
+    */
+
+    if (prefersReducedMotion.matches) {
+
+        revealElements.forEach(element => {
+            element.classList.add("active");
+        });
+
+        return;
+    }
+
+    /*
+       Fallback for older browsers.
+    */
+
+    if (!("IntersectionObserver" in window)) {
+
+        revealElements.forEach(element => {
+            element.classList.add("active");
+        });
+
+        return;
+    }
+
+    /*
+       Apply reveal class before observation.
+    */
+
+    revealElements.forEach(element => {
+        element.classList.add("reveal");
+    });
+
+    const observer = new IntersectionObserver(
+        (entries, observerInstance) => {
+
+            entries.forEach(entry => {
+
+                if (!entry.isIntersecting) {
+                    return;
+                }
+
+                entry.target.classList.add("active");
+
+                observerInstance.unobserve(
+                    entry.target
+                );
+
+            });
+
+        },
+        {
+            threshold: 0.08,
+            rootMargin: "0px 0px -30px 0px"
+        }
+    );
+
+    revealElements.forEach(element => {
+        observer.observe(element);
+    });
+}
+
+
+/* =====================================================
+   10 - SMOOTH NAVIGATION
+
+   Allows navigation links to scroll smoothly
+   to their corresponding sections.
+===================================================== */
+
+function initializeSmoothScrolling() {
+
+    const internalLinks = document.querySelectorAll(
+        'a[href^="#"]'
+    );
+
+    internalLinks.forEach(link => {
+
+        link.addEventListener("click", event => {
+
+            const targetId = link.getAttribute("href");
+
+            if (!targetId || targetId === "#") {
+                return;
+            }
+
+            const target = document.querySelector(
+                targetId
+            );
+
+            if (!target) {
+                return;
+            }
+
+            event.preventDefault();
+
+            target.scrollIntoView({
+                behavior: prefersReducedMotion.matches
+                    ? "auto"
+                    : "smooth",
+                block: "start"
+            });
+
+            /*
+               Preserve the destination in the URL.
+            */
+
+            if (window.history.replaceState) {
+
+                window.history.replaceState(
+                    null,
+                    "",
+                    targetId
+                );
+
+            }
+
+        });
+
+    });
+}
+
+
+/* =====================================================
+   11 - INITIALIZE WEBSITE
+
+   Runs after the HTML document is ready.
+===================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    initializeMobileNavigation();
+
+    initializeVaultSystem();
+
+    initializeScrollReveal();
+
+    initializeSmoothScrolling();
+
+    initializeHeroTerminal();
+
+});

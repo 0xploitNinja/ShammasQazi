@@ -1,743 +1,1269 @@
 
-/* ========================= */
-/* GLOBAL RESET */
-/* ========================= */
+/* =========================================================
+   SHAMMAS QAZI - CYBERSECURITY PORTFOLIO
+   MAIN STYLESHEET
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-html{
-scroll-behavior:smooth;
-}
-
-body{
-font-family:'JetBrains Mono',monospace;
-background:#0b0f10;
-color:#d6f5dd;
-line-height:1.7;
-overflow-x:hidden;
-}
-
-
-
-/* ========================= */
-/* NAVBAR LOGIC */
-/* ========================= */
-
-.navbar{
-
-width:100%;
-
-padding:20px 8%;
-
-background:rgba(11,15,16,.95);
-
-border-bottom:1px solid rgba(159,239,0,.15);
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-position:sticky;
-
-top:0;
-
-z-index:999;
-
-}
-
-.logo{
-
-color:#9fef00;
-
-font-weight:700;
-
-}
-
-.nav-links{
-
-list-style:none;
-
-display:flex;
-
-gap:22px;
-
-}
-
-.nav-links a{
-
-text-decoration:none;
-
-color:#d6f5dd;
-
-}
-
-.nav-links a:hover{
-
-color:#9fef00;
-
-}
-
-
-
-/* ========================= */
-/* MOBILE NAV */
-/* ========================= */
-
-.menu-toggle{
-
-display:none;
-
-background:none;
-
-border:1px solid #9fef00;
-
-color:#9fef00;
-
-padding:8px 12px;
-
-cursor:pointer;
-
-}
-
-@media(max-width:700px){
-
-.menu-toggle{
-
-display:block;
-
-}
-
-.nav-links{
-
-display:none;
-
-flex-direction:column;
-
-width:100%;
-
-margin-top:20px;
-
-}
-
-.nav-links.active{
-
-display:flex;
-
-}
-
-}
-
-
-
-/* ========================= */
-/* HERO */
-/* ========================= */
-
-.hero{
-
-padding:120px 8% 80px;
-
-display:flex;
-
-flex-direction:column;
-
-gap:40px;
-
-}
-
-.hero-grid{
-
-display:grid;
-
-grid-template-columns:
-minmax(0,2fr)
-340px;
-
-gap:35px;
-
-}
-
-.hero-buttons{
-
-display:flex;
-
-gap:20px;
-
-flex-wrap:wrap;
-
-}
-
-
-
-/* ========================= */
-/* TERMINAL */
-/* ========================= */
-
-.terminal-window{
-
-background:#080c0d;
-
-border:1px solid rgba(159,239,0,.25);
-
-box-shadow:
-0 0 40px rgba(159,239,0,.08);
-
-}
-
-.terminal-header{
-
-padding:12px 16px;
-
-background:#111819;
-
-display:flex;
-
-align-items:center;
-
-gap:8px;
-
-}
-
-.dot{
-
-width:10px;
-
-height:10px;
-
-border-radius:50%;
-
-}
-
-.red{
-
-background:#ff5f56;
-
-}
-
-.yellow{
-
-background:#ffbd2e;
-
-}
-
-.green{
-
-background:#27c93f;
-
-}
-
-.terminal-title{
-
-color:#7d8f83;
-
-margin-left:10px;
-
-}
-
-.terminal-body{
-
-padding:28px;
-
-min-height:280px;
-
-}
-
-.typed-line{
-
-margin-bottom:12px;
-
-}
-
-.cursor{
-
-color:#9fef00;
-
-animation:blink .8s infinite;
-
-}
-
-@keyframes blink{
-
-50%{
-
-opacity:0;
-
-}
-
-}
-
-
-
-/* ========================= */
-/* PROFILE PANEL */
-/* ========================= */
-
-.profile-card{
-
-background:#111819;
-
-border:1px solid rgba(159,239,0,.25);
-
-padding:35px;
-
-}
-
-.profile-card h3{
-
-color:#9fef00;
-
-margin-bottom:25px;
-
-}
-
-.profile-items{
-
-display:flex;
-
-flex-direction:column;
-
-gap:18px;
-
-}
-
-
-
-/* ========================= */
-/* BUTTONS */
-/* ========================= */
-
-.btn{
-
-padding:14px 20px;
-
-background:#9fef00;
-
-color:#0b0f10;
-
-text-decoration:none;
-
-border:1px solid #9fef00;
-
-font-weight:700;
-
-}
-
-.btn:hover{
-
-background:transparent;
-
-color:#9fef00;
-
-}
-
-.btn-outline{
+   01. Theme and reset
+   02. Navigation
+   03. Hero and terminal
+   04. Status panel
+   05. Buttons
+   06. General sections
+   07. Portfolio cards
+   08. Certifications
+   09. Vault system
+   10. Contact
+   11. Footer
+   12. Scroll animations
+   13. Responsive layouts
+   14. Accessibility
+========================================================= */
 
-background:transparent;
 
-color:#9fef00;
+/* =========================================================
+   01 - THEME VARIABLES
+========================================================= */
 
-}
-
-
-
-/* ========================= */
-/* SECTIONS */
-/* ========================= */
-
-.section{
-
-max-width:1150px;
-
-margin:auto;
-
-padding:90px 8%;
-
-border-top:
-1px solid rgba(159,239,0,.12);
-
-}
-
-.section h2{
-
-color:#9fef00;
-
-margin-bottom:25px;
-
-}
-
-.section p{
-
-color:#b7c9bd;
-
-}
-
-
-
-/* ========================= */
-/* UNIVERSAL VAULT */
-/* ========================= */
-
-.vault-toggle{
-
-background:transparent;
-
-border:1px solid #9fef00;
-
-color:#9fef00;
-
-padding:14px 18px;
-
-cursor:pointer;
-
-margin-top:25px;
-
-font-family:inherit;
-
-}
-
-.vault-toggle:hover{
-
-background:#9fef00;
-
-color:#0b0f10;
-
-box-shadow:
-0 0 30px rgba(159,239,0,.18);
-
-}
-
-.vault-terminal{
-
-background:#080c0d;
-
-border:1px solid rgba(159,239,0,.2);
-
-padding:18px;
-
-margin-top:18px;
-
-margin-bottom:30px;
-
-color:#9fef00;
-
-white-space:pre-line;
-
-min-height:80px;
-
-}
-
-
-@keyframes reveal{
-
-from{
-
-opacity:0;
-
-transform:
-translateY(30px)
-scale(.96);
-
-}
-
-to{
-
-opacity:1;
-
-transform:
-translateY(0)
-scale(1);
-
-}
-
-}
-
-
-
-/* ========================= */
-/* CARDS */
-/* ========================= */
-
-.card-grid{
-
-display:grid;
-
-grid-template-columns:
-repeat(2,1fr);
-
-gap:25px;
-
-}
-
-.card{
-
-background:#111819;
-
-padding:28px;
-
-border:1px solid rgba(159,239,0,.2);
-
-transition:.35s;
-
-}
-
-.card:hover{
-
-transform:
-translateY(-6px);
-
-border-color:#9fef00;
-
-box-shadow:
-0 0 30px rgba(159,239,0,.12);
-
-}
-
-.card h3{
-
-margin-bottom:15px;
-
-color:#ffffff;
-
-}
-
-
-
-/* ========================= */
-/* CERTIFICATES */
-/* ========================= */
-
-.cert-grid{
-
-display:grid;
+:root {
+    --bg-primary: #080d0b;
+    --bg-secondary: #0d1511;
+    --bg-card: #101b15;
+    --bg-terminal: #070c09;
 
-grid-template-columns:
-repeat(2,1fr);
+    --accent: #00ff88;
+    --accent-hover: #70ffb3;
+    --accent-muted: rgba(0, 255, 136, 0.12);
 
-gap:30px;
+    --text-primary: #e6f2eb;
+    --text-secondary: #a1b5a8;
+    --text-muted: #718779;
 
-}
-
-.cert-card{
-
-background:#111819;
-
-padding:20px;
-
-border:1px solid rgba(159,239,0,.2);
-
-overflow:hidden;
-
-transition:.4s;
-
-}
-
-.cert-card:hover{
-
-transform:scale(1.04);
-
-box-shadow:
-0 0 40px rgba(159,239,0,.18);
-
-}
-
-.cert-card img{
-
-width:100%;
-
-display:block;
-
-transition:.4s;
-
-}
-
-.cert-card:hover img{
-
-transform:scale(1.06);
-
-}
-
-.cert-card h3{
-
-margin-top:20px;
-
-color:#9fef00;
-
-}
-
-
-
-/* ========================= */
-/* LINKS */
-/* ========================= */
-
-.contact-links{
-
-display:flex;
-
-gap:14px;
-
-flex-wrap:wrap;
-
-margin-top:20px;
-
-}
-
-.contact-links a,
-.footer-links a{
-
-color:#9fef00;
-
-text-decoration:none;
-
-border:1px solid rgba(159,239,0,.25);
-
-padding:12px 18px;
-
-}
-
-.contact-links a:hover,
-.footer-links a:hover{
-
-background:#9fef00;
+    --border: rgba(0, 255, 136, 0.20);
+    --border-hover: rgba(0, 255, 136, 0.65);
 
-color:#0b0f10;
+    --shadow-green: 0 0 25px rgba(0, 255, 136, 0.12);
 
-}
-
-
-
-/* ========================= */
-/* FOOTER */
-/* ========================= */
-
-.footer{
-
-margin-top:100px;
-
-padding:50px;
-
-text-align:center;
-
-border-top:
-1px solid rgba(159,239,0,.15);
-
-}
-
-.footer p:first-child{
-
-color:#9fef00;
-
-}
-
-.footer-links{
-
-display:flex;
-
-justify-content:center;
-
-gap:20px;
-
-margin-top:25px;
-
-}
-
-
+    --font-main: "JetBrains Mono", monospace;
 
-/* ========================= */
-/* SCROLL REVEAL */
-/* ========================= */
+    --container-width: 1200px;
 
-.reveal{
+    --radius: 12px;
 
-opacity:0;
-
-transform:
-translateY(35px);
-
-transition:.7s;
-
-}
-
-.reveal.active{
-
-opacity:1;
-
-transform:
-translateY(0);
-
+    --transition: 0.3s ease;
 }
-
-
-
-/* ========================= */
-/* MOBILE */
-/* ========================= */
-
-@media(max-width:900px){
 
-.hero-grid{
 
-grid-template-columns:1fr;
+/* =========================================================
+   GLOBAL RESET
+========================================================= */
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.card-grid{
-
-grid-template-columns:1fr;
-
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
 }
 
-.cert-grid{
+body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
 
-grid-template-columns:1fr;
+    font-family: var(--font-main);
+    font-size: 14px;
+    line-height: 1.8;
 
+    overflow-x: hidden;
+    min-height: 100vh;
 }
 
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
 }
-
-@media(max-width:500px){
 
-.hero{
-
-padding:90px 6%;
-
+button {
+    font: inherit;
 }
-
-.section{
 
-padding:70px 6%;
-
+a {
+    color: inherit;
+    text-decoration: none;
 }
-
-.btn{
-
-width:100%;
 
-text-align:center;
-
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
-
-.contact-links{
 
-flex-direction:column;
-
+::selection {
+    background: var(--accent);
+    color: var(--bg-primary);
 }
 
-}
+/*
+   Critical:
+   HTML's hidden attribute must always hide an element.
 
-/* FINAL UNIVERSAL VAULT FIX */
+   This prevents locked vault content from appearing
+   because of conflicting display properties.
+*/
 
-.vault-section .vault-content {
+[hidden] {
     display: none !important;
 }
 
-.vault-section .vault-content.show {
-    display: block !important;
-    animation: reveal .6s ease forwards;
+
+/* =========================================================
+   02 - NAVIGATION
+========================================================= */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    width: 100%;
+    min-height: 76px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 16px max(
+        24px,
+        calc((100vw - var(--container-width)) / 2)
+    );
+
+    background: rgba(8, 13, 11, 0.94);
+    border-bottom: 1px solid var(--border);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.logo {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 17px;
+
+    letter-spacing: -0.5px;
+    white-space: nowrap;
+
+    transition: color var(--transition);
+}
+
+.logo:hover {
+    color: var(--accent-hover);
+}
+
+.nav-links {
+    list-style: none;
+
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    font-size: 12px;
+    font-weight: 500;
+
+    transition: color var(--transition);
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+    color: var(--accent);
+}
+
+.menu-toggle {
+    display: none;
+
+    border: 1px solid var(--border);
+    border-radius: 7px;
+
+    background: transparent;
+    color: var(--accent);
+
+    font-size: 22px;
+    line-height: 1;
+
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   03 - HERO SECTION
+========================================================= */
+
+.hero {
+    width: 100%;
+    max-width: var(--container-width);
+
+    margin: 0 auto;
+
+    padding: 95px 24px 75px;
+}
+
+.hero-grid {
+    display: grid;
+
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+
+    gap: 30px;
+    align-items: stretch;
+}
+
+
+/* =========================================================
+   HERO TERMINAL WINDOW
+========================================================= */
+
+.terminal-window {
+    background: var(--bg-terminal);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    overflow: hidden;
+
+    min-height: 385px;
+
+    box-shadow: var(--shadow-green);
+}
+
+.terminal-header {
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 0 17px;
+
+    background: #121b15;
+    border-bottom: 1px solid var(--border);
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+
+    display: inline-block;
+    border-radius: 50%;
+
+    flex-shrink: 0;
+}
+
+.dot.red {
+    background: #ff605c;
+}
+
+.dot.yellow {
+    background: #ffbd44;
+}
+
+.dot.green {
+    background: #00ca4e;
+}
+
+.terminal-title {
+    margin-left: 12px;
+
+    color: var(--text-muted);
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.terminal-body {
+    padding: 24px;
+
+    color: var(--text-primary);
+    font-size: 12px;
+    line-height: 1.9;
+
+    overflow-wrap: anywhere;
+    word-break: normal;
+}
+
+.terminal-flow {
+    min-height: 330px;
+}
+
+.terminal-line {
+    min-height: 22px;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.terminal-command {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.terminal-cursor {
+    display: inline-block;
+
+    color: var(--accent);
+
+    animation: cursorBlink 1s steps(1) infinite;
+}
+
+@keyframes cursorBlink {
+    0%,
+    49% {
+        opacity: 1;
+    }
+
+    50%,
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   04 - STATUS PANEL
+========================================================= */
+
+.profile-card {
+    background: var(--bg-secondary);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    padding: 26px;
+
+    min-height: 385px;
+
+    box-shadow: var(--shadow-green);
+
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-card h3 {
+    color: var(--accent);
+
+    font-size: 15px;
+    font-weight: 700;
+
+    margin-bottom: 25px;
+    padding-bottom: 14px;
+
+    border-bottom: 1px solid var(--border);
+
+    letter-spacing: 0.4px;
+}
+
+.profile-items {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.profile-items p {
+    color: var(--text-secondary);
+
+    font-size: 12px;
+    line-height: 1.8;
+
+    overflow-wrap: anywhere;
+}
+
+.profile-items p::before {
+    content: "> ";
+
+    color: var(--accent);
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   05 - HERO BUTTONS
+========================================================= */
+
+.hero-buttons {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    margin-top: 30px;
+}
+
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 12px 24px;
+
+    background: var(--accent);
+    color: #061009;
+
+    border: 1px solid var(--accent);
+    border-radius: 7px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    transition:
+        background var(--transition),
+        color var(--transition),
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+.btn:hover {
+    background: var(--accent-hover);
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 5px 25px rgba(0, 255, 136, 0.18);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--accent);
+}
+
+.btn-outline:hover {
+    background: var(--accent-muted);
+    color: var(--accent-hover);
+}
+
+
+/* =========================================================
+   06 - GENERAL SECTIONS
+========================================================= */
+
+.section {
+    max-width: var(--container-width);
+
+    margin: 0 auto;
+
+    padding: 75px 24px;
+
+    border-top: 1px solid rgba(0, 255, 136, 0.08);
+}
+
+.section h2 {
+    color: var(--accent);
+
+    font-size: clamp(19px, 2.5vw, 26px);
+    font-weight: 700;
+
+    line-height: 1.5;
+
+    margin-bottom: 22px;
+
+    overflow-wrap: anywhere;
+}
+
+.section > p {
+    color: var(--text-secondary);
+
+    font-size: 13px;
+    line-height: 1.9;
+
+    margin-bottom: 30px;
+
+    max-width: 900px;
+}
+
+.static-content {
+    color: var(--text-secondary);
+}
+
+.static-content > p {
+    font-size: 13px;
+    line-height: 2;
+
+    margin-bottom: 20px;
+}
+
+.static-content > p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   07 - PORTFOLIO GRID
+   3 columns desktop
+   2 columns tablet
+   1 column mobile
+========================================================= */
+
+.card-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+.card {
+    position: relative;
+
+    background: var(--bg-card);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    padding: 26px;
+
+    min-width: 0;
+    min-height: 245px;
+
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        background var(--transition),
+        box-shadow var(--transition);
+}
+
+.card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--accent);
+
+    transition: width 0.4s ease;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+
+    background: #132119;
+
+    border-color: var(--border-hover);
+
+    box-shadow: 0 10px 30px rgba(0, 255, 136, 0.10);
+}
+
+.card:hover::before {
+    width: 100%;
+}
+
+.card h3 {
+    color: var(--accent);
+
+    font-size: 14px;
+    font-weight: 700;
+
+    line-height: 1.65;
+
+    margin-bottom: 15px;
+
+    overflow-wrap: anywhere;
+}
+
+.card p {
+    color: var(--text-secondary);
+
+    font-size: 12px;
+    line-height: 1.9;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   08 - CERTIFICATIONS
+========================================================= */
+
+.cert-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 30px;
+
+    align-items: stretch;
+}
+
+.cert-card {
+    position: relative;
+
+    background: var(--bg-card);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    padding: 25px;
+
+    min-width: 0;
+
+    text-align: center;
+
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition);
+}
+
+.cert-card:hover {
+    transform: translateY(-5px);
+
+    border-color: var(--border-hover);
+
+    box-shadow: 0 10px 35px rgba(0, 255, 136, 0.12);
+}
+
+.cert-card img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;
+
+    border: 1px solid var(--border);
+    border-radius: 6px;
+
+    margin-bottom: 22px;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.cert-card:hover img {
+    transform: scale(1.035);
+
+    box-shadow: 0 0 25px rgba(0, 255, 136, 0.16);
+}
+
+.cert-card h3 {
+    color: var(--accent);
+
+    font-size: 17px;
+    font-weight: 700;
+
+    margin-bottom: 7px;
+}
+
+.cert-card p {
+    color: var(--text-secondary);
+
+    font-size: 12px;
+    line-height: 1.8;
+
+    margin-bottom: 5px;
+}
+
+
+/* =========================================================
+   09 - VAULT SYSTEM
+
+   Used ONLY by:
+   - Passions
+   - Writeups
+   - Future Roadmap
+
+   Other sections remain visible.
+========================================================= */
+
+.vault-section {
+    position: relative;
+}
+
+.vault-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 46px;
+
+    padding: 11px 22px;
+
+    background: transparent;
+
+    color: var(--accent);
+
+    border: 1px solid var(--accent);
+    border-radius: 7px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background var(--transition),
+        color var(--transition),
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+.vault-toggle:hover {
+    background: var(--accent-muted);
+
+    color: var(--accent-hover);
+
+    transform: translateY(-2px);
+
+    box-shadow: var(--shadow-green);
+}
+
+.vault-toggle:disabled {
+    opacity: 0.65;
+    cursor: wait;
+    transform: none;
+}
+
+
+/* =========================================================
+   VAULT TERMINAL OUTPUT
+========================================================= */
+
+.vault-terminal {
+    background: var(--bg-terminal);
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    padding: 22px;
+
+    margin-top: 24px;
+
+    color: var(--text-secondary);
+
+    font-size: 12px;
+    line-height: 1.9;
+
+    overflow-wrap: anywhere;
+}
+
+.vault-terminal .terminal-command {
+    color: var(--accent);
+}
+
+.vault-terminal .terminal-line {
+    min-height: 22px;
+}
+
+
+/* =========================================================
+   VAULT REVEALED CONTENT
+========================================================= */
+
+.vault-content {
+    margin-top: 24px;
+
+    padding: 26px;
+
+    background: var(--bg-card);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    color: var(--text-secondary);
+}
+
+.vault-content:not([hidden]) {
+    animation: vaultReveal 0.55s ease both;
+}
+
+.vault-content p {
+    font-size: 13px;
+    line-height: 2;
+
+    margin-bottom: 18px;
+}
+
+.vault-content p:last-child {
+    margin-bottom: 0;
+}
+
+@keyframes vaultReveal {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   10 - CONTACT LINKS
+========================================================= */
+
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 25px;
+}
+
+.contact-links a {
+    display: inline-flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 10px 20px;
+
+    color: var(--accent);
+
+    border: 1px solid var(--border);
+    border-radius: 7px;
+
+    background: var(--bg-secondary);
+
+    font-size: 12px;
+    font-weight: 500;
+
+    transition:
+        background var(--transition),
+        color var(--transition),
+        border-color var(--transition),
+        transform var(--transition);
+}
+
+.contact-links a:hover {
+    color: var(--accent-hover);
+
+    background: var(--accent-muted);
+
+    border-color: var(--border-hover);
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   11 - FOOTER
+========================================================= */
+
+.footer {
+    text-align: center;
+
+    padding: 40px 24px 45px;
+
+    background: #070c09;
+
+    border-top: 1px solid var(--border);
+}
+
+.footer p {
+    color: var(--text-muted);
+
+    font-size: 11px;
+    line-height: 2;
+
+    margin-bottom: 8px;
+}
+
+.footer p:first-child {
+    color: var(--accent);
+}
+
+.footer-links {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 24px;
+
+    margin-top: 18px;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+
+    font-size: 11px;
+
+    transition: color var(--transition);
+}
+
+.footer-links a:hover {
+    color: var(--accent);
+}
+
+
+/* =========================================================
+   12 - SCROLL REVEAL ANIMATIONS
+
+   JavaScript adds:
+   .reveal
+   .active
+========================================================= */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(24px);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+/*
+   Hover must continue to work after the
+   initial scroll reveal animation.
+*/
+
+.card.reveal.active:hover {
+    transform: translateY(-7px);
+}
+
+.cert-card.reveal.active:hover {
+    transform: translateY(-5px);
+}
+
+
+/* =========================================================
+   13 - RESPONSIVE LAYOUTS
+========================================================= */
+
+
+/* =========================================================
+   TABLET AND SMALL LAPTOPS
+========================================================= */
+
+@media (max-width: 1050px) {
+
+    .navbar {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .nav-links {
+        gap: 14px;
+    }
+
+    .nav-links a {
+        font-size: 11px;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 20px;
+    }
+
+    .card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card {
+        min-height: 220px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE NAVIGATION BREAKPOINT
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        min-height: 68px;
+
+        padding: 14px 20px;
+    }
+
+    .logo {
+        font-size: 15px;
+    }
+
+    .menu-toggle {
+        display: inline-flex;
+    }
+
+    .nav-links {
+        display: none;
+
+        position: absolute;
+
+        top: 100%;
+        left: 0;
+        right: 0;
+
+        width: 100%;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 0;
+
+        padding: 12px 20px 20px;
+
+        background: rgba(8, 13, 11, 0.98);
+
+        border-bottom: 1px solid var(--border);
+
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a {
+        display: block;
+
+        padding: 12px 5px;
+
+        font-size: 13px;
+
+        border-bottom: 1px solid rgba(0, 255, 136, 0.07);
+    }
+
+
+    /* HERO */
+
+    .hero {
+        padding: 65px 20px 55px;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .terminal-window,
+    .profile-card {
+        min-height: auto;
+    }
+
+    .terminal-flow {
+        min-height: 280px;
+    }
+
+    .profile-card {
+        padding: 23px;
+    }
+
+    .hero-buttons {
+        margin-top: 25px;
+    }
+
+
+    /* SECTIONS */
+
+    .section {
+        padding: 60px 20px;
+    }
+
+    .section h2 {
+        font-size: 20px;
+    }
+
+
+    /* PORTFOLIO */
+
+    .card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 16px;
+    }
+
+    .card {
+        padding: 20px;
+        min-height: auto;
+    }
+
+    .card h3 {
+        font-size: 13px;
+    }
+
+
+    /* CERTIFICATIONS */
+
+    .cert-grid {
+        gap: 18px;
+    }
+
+    .cert-card {
+        padding: 16px;
+    }
+
+    .cert-card h3 {
+        font-size: 15px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE DEVICES
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cert-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+    .terminal-body {
+        padding: 18px;
+        font-size: 11px;
+    }
+
+    .terminal-title {
+        font-size: 10px;
+    }
+
+    .profile-card {
+        padding: 20px;
+    }
+
+    .profile-items p {
+        font-size: 11px;
+    }
+
+    .card {
+        padding: 23px;
+    }
+
+    .card h3 {
+        font-size: 14px;
+    }
+
+    .cert-card {
+        padding: 20px;
+    }
+
+    .vault-content,
+    .vault-terminal {
+        padding: 18px;
+    }
+
+    .contact-links {
+        gap: 10px;
+    }
+
+    .contact-links a {
+        flex: 1 1 130px;
+    }
+
+}
+
+
+/* =========================================================
+   EXTRA SMALL SCREENS
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .hero,
+    .section {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .navbar {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .logo {
+        font-size: 13px;
+    }
+
+    .terminal-body {
+        font-size: 10px;
+    }
+
+    .vault-toggle {
+        width: 100%;
+        padding: 12px;
+    }
+
+}
+
+
+/* =========================================================
+   14 - ACCESSIBILITY
+========================================================= */
+
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+
+    .terminal-cursor {
+        animation: none;
+    }
+
 }
